@@ -1,0 +1,158 @@
+{
+  "job_id": "8b6310c2cc924adb8ffe9d938ee261e0",
+  "source_filename": "DC_42_55.tif",
+  "is_georeferenced": true,
+  "mode": "absolute",
+  "dsm_kind": "absolute_dsm",
+  "crs": "EPSG:32618",
+  "geo": {
+    "crs": "EPSG:32618",
+    "transform": [
+      0.5,
+      0.0,
+      344160.0,
+      0.0,
+      -0.5,
+      4291496.0
+    ],
+    "width": 1024,
+    "height": 1024,
+    "bounds": [
+      344160.0,
+      4290984.0,
+      344672.0,
+      4291496.0
+    ],
+    "resolution": [
+      0.5,
+      0.5
+    ]
+  },
+  "bounds_wgs84": [
+    -76.7935622528859,
+    38.75380788394233,
+    -76.78755724427702,
+    38.75850988487472
+  ],
+  "width": 1024,
+  "height": 1024,
+  "band_count": 3,
+  "bit_depth": 8,
+  "file_format": "geotiff",
+  "gsd_m": 0.5,
+  "pixel_size_m": 0.5,
+  "sun_azimuth_deg": 158.68304678677578,
+  "sun_elevation_deg": 37.42,
+  "sun_azimuth_source": "estimated",
+  "da_v2_encoder": "vitb",
+  "da_v2_checkpoint": "depth_anything_v2_vitb_gamus_best.pth",
+  "da_v2_stats": {
+    "min": 0.016856452450156212,
+    "max": 5.929459571838379,
+    "mean": 1.4009594917297363
+  },
+  "depth_pro_stats": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "depth_pro_used": false,
+  "depth_pro_skipped_reason": "Ensemble disabled by the user.",
+  "depth_pro_focallength_px": 0.0,
+  "tiles": 1,
+  "tta_variants": 8,
+  "tile_size": 1024,
+  "overlap": 0.25,
+  "fusion_method": "Height field from the GAMUS fine-tuned DA V2 (tiled, D4-TTA mean, ground = 1st percentile, empirical metre scale); uncertainty from TTA spread; Depth Pro is reference-only.",
+  "depth_pro_enabled": false,
+  "height_scale_applied": 2.6,
+  "confidence_available": true,
+  "calibration_status": "calibrated",
+  "calibration_note": "Terrain from local DEM tiles: N38W077.hgt | DEM present but the scene has too little relief/correlation to fix the scale; used for terrain only.",
+  "calibration_scale": 1.159988034332455,
+  "calibration_sources": [
+    {
+      "name": "shadow",
+      "scale": 1.159988034332455,
+      "weight": 2.1065206641932783,
+      "detail": "118 buildings, median H=L*tan(el); spread 30%"
+    }
+  ],
+  "calibration_scale_log_sigma": null,
+  "ground_residual_rmse_m": 0.3038073182106018,
+  "gcp_residuals": [],
+  "shadow_summary": "118 shadow heights fused; azimuth 159 deg (estimated)",
+  "shadow_agreement": 0.1599880343324549,
+  "shadow_measured": 118,
+  "dsm_is_metric": true,
+  "mesh_status": "ready",
+  "mesh_vertex_count": 21316,
+  "mesh_triangle_count": 42050,
+  "mesh_hires_triangle_count": 50738,
+  "mesh_source_dsm": "dsm.tif",
+  "mesh_source_image": "DC_42_55.tif",
+  "mesh_grid_rows": 146,
+  "mesh_grid_cols": 146,
+  "mesh_downsample_factor": 7,
+  "mesh_elevation_min": 45.62934494018555,
+  "mesh_elevation_max": 81.65528106689453,
+  "mesh_texture_width": 1024,
+  "mesh_texture_height": 1024,
+  "mesh_horizontal_spacing_x": 3.5,
+  "mesh_horizontal_spacing_z": 3.5,
+  "mesh_vertical_exaggeration": 2.0,
+  "unity_horizontal_scale_source": "geotiff",
+  "unity_world_size_m": {
+    "x": 512.0,
+    "z": 512.0
+  },
+  "mesh_spacing_units": "meters",
+  "mesh_chunks": 1,
+  "mesh_lod0_triangles": 51414,
+  "buildings_count": 123,
+  "disaster_zones_count": 10,
+  "validation_status": "unavailable",
+  "height_range": [
+    45.533050537109375,
+    81.70677185058594
+  ],
+  "mean_height": 3.876396417617798,
+  "height_unit": "m",
+  "land_cover_fractions": {
+    "ground": 0.22088050842285156,
+    "low_vegetation": 0.12615299224853516,
+    "building": 0.34758853912353516,
+    "water": 0.0,
+    "road": 0.2673044204711914,
+    "tree": 0.03807353973388672
+  },
+  "land_cover_counts": {
+    "ground": 231610,
+    "low_vegetation": 132281,
+    "building": 364473,
+    "water": 0,
+    "road": 280289,
+    "tree": 39923
+  },
+  "timings": {
+    "inference_s": 5.55568265914917,
+    "mesh_s": 1.9260873794555664,
+    "total_s": 23.97735333442688
+  },
+  "pixels_per_second": 188739.36189879233,
+  "started_at": 1790694706.2091107,
+  "completed_at": 1790694730.1986074,
+  "options": {
+    "gsd_m": null,
+    "crs": null,
+    "origin_x": null,
+    "origin_y": null,
+    "sun_azimuth_deg": null,
+    "sun_elevation_deg": null,
+    "dem_source": "auto",
+    "tta": true,
+    "ensemble": false,
+    "tile_size": 1024,
+    "overlap": 0.25
+  }
+}

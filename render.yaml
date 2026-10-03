@@ -1,0 +1,29 @@
+# Render Blueprint (FREE tier): dashboard -> New -> Blueprint -> select this repo.
+# Backend only; the frontend is deployed separately (Vercel).
+#
+# The free tier has 512 MB RAM, which cannot hold PyTorch, so this deploys the API
+# WITHOUT the ML stack (torch is never imported at startup). Sample scenes, survey,
+# hazards/flood, scenarios and exports work; live depth inference (uploading a new
+# image for prediction) needs a >= 2 GB plan or the Docker path in docs/DEPLOYMENT.md.
+services:
+  - type: web
+    name: aakashdrishti-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: DEVICE
+        value: cpu
+      - key: ENABLE_DEPTH_PRO
+        value: "false"
+      - key: CORS_ORIGINS
+        sync: false           # set to your frontend URL, e.g. https://aakashdrishti.vercel.app
+      - key: AUTH_REQUIRED
+        value: "false"
+      - key: AUTH_SECRET
+        generateValue: true

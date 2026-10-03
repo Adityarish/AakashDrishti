@@ -1,0 +1,47 @@
+# Web / API
+fastapi>=0.115
+uvicorn[standard]>=0.32
+python-multipart>=0.0.12
+pydantic>=2.9
+pydantic-settings>=2.6
+
+# ML core (installed separately with CUDA index, see README setup)
+# torch==2.14.0+cu130
+# torchvision==0.19.0+cu130
+timm>=1.0.11
+
+# Depth Pro deps (matches model/ml-depth-pro-main/pyproject.toml)
+pillow_heif>=0.18
+matplotlib>=3.9
+
+# Image processing
+opencv-python-headless>=4.10
+# NOTE: model/ml-depth-pro-main pins numpy<2 in its own pyproject.toml, but that
+# pin is not enforced here (--no-deps install) because numpy 1.26.x hits a known
+# Windows longdouble overflow bug (numpy#24606). numpy 2.x works fine with our
+# torch/timm/rasterio versions and with depth_pro's actual inference code.
+numpy>=2
+Pillow>=10.4
+
+# Geospatial
+rasterio>=1.3.10
+
+# Scientific / calibration / validation
+scipy>=1.14
+scikit-image>=0.24
+
+# 3D mesh / GLB export
+trimesh>=4.5
+
+# Utilities
+python-dotenv>=1.0
+
+# Survey / analysis extensions
+httpx>=0.27            # DEM tile download, optional online AI analyst
+pyjwt>=2.8             # optional email/password auth (roles)
+imageio-ffmpeg>=0.5    # bundled ffmpeg: recorded flythrough -> 1080p MP4
+reportlab>=4.0         # PDF situation brief
+mcp>=2.0               # MCP server exposing scene statistics (app/analyst/mcp_server.py)
+pymartini>=0.5         # RTIN adaptive terrain meshing with LOD chunks
+h5py>=3.10             # only for backend/tools/fetch_gamus_samples.py
+ultralytics>=8.3       # aerial object detection, DOTA oriented boxes (app/detect/objects.py)

@@ -1,0 +1,305 @@
+{
+  "job_id": "8b6310c2cc924adb8ffe9d938ee261e0",
+  "stage": "READY",
+  "source_filename": "DC_42_55.tif",
+  "stored_path": "C:\\projects\\AakashDrishti\\data\\bake\\8b6310c2cc924adb8ffe9d938ee261e0\\source.tif",
+  "is_georeferenced": true,
+  "error": null,
+  "created_at": 1790694706.2041106,
+  "updated_at": 1790694792.7749474,
+  "outputs": {
+    "original": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/ortho.jpg",
+    "ortho_jpg": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/ortho.jpg",
+    "thumb_jpg": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/thumb.jpg",
+    "depth_anything_v2_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/depth_anything_v2.tif",
+    "fused_depth_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/fused_depth.tif",
+    "confidence_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/confidence.tif",
+    "fused_depth_preview_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/fused_depth_preview.png",
+    "confidence_preview_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/confidence_preview.png",
+    "buildings_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/buildings.json",
+    "disaster_zones_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/disaster_zones.json",
+    "validation_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/validation.json",
+    "terrain_hires_glb": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/terrain_hires.glb",
+    "terrain_glb": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/terrain.glb",
+    "terrain_obj_zip": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/terrain_obj.zip",
+    "height_f32": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/height.f32",
+    "ndsm_f32": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/ndsm.f32",
+    "uncertainty_f32": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/uncertainty.f32",
+    "dsm_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/dsm.tif",
+    "ndsm_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/ndsm.tif",
+    "uncertainty_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/uncertainty.tif",
+    "slope_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/slope.tif",
+    "aspect_tif": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/aspect.tif",
+    "hillshade_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/hillshade.png",
+    "height_color_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/height_color.png",
+    "slope_color_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/slope_color.png",
+    "uncertainty_color_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/uncertainty_color.png",
+    "landcover_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/landcover.png",
+    "dsm_preview_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/dsm_preview.png",
+    "height_png": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/height.png",
+    "height_meta_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/height_meta.json",
+    "scene_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/scene.json",
+    "unity_scene_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/unity_scene.json",
+    "unity_heightmap_r16": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/heightmap.r16",
+    "unity_texture_jpg": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/texture.jpg",
+    "metadata_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/metadata.json",
+    "validation_error_map": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/error_map.png",
+    "validation_compare_pred": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/compare_pred.png",
+    "validation_compare_reference": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/compare_reference.png",
+    "validation_lab_json": "/api/pipeline/output/8b6310c2cc924adb8ffe9d938ee261e0/validation_lab.json"
+  },
+  "mode": "absolute",
+  "options": {
+    "gsd_m": null,
+    "crs": null,
+    "origin_x": null,
+    "origin_y": null,
+    "sun_azimuth_deg": null,
+    "sun_elevation_deg": null,
+    "dem_source": "auto",
+    "tta": true,
+    "ensemble": false,
+    "tile_size": 1024,
+    "overlap": 0.25
+  },
+  "gcps": [],
+  "steps": [
+    {
+      "key": "ingest",
+      "label": "Ingest and validate",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "ABSOLUTE mode, 1024x1024 px",
+      "started_at": 1790694706.2101142,
+      "ended_at": 1790694706.3771698
+    },
+    {
+      "key": "tiling",
+      "label": "Tiling",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "1 tile(s) of 1024px, 25% overlap, Hann blend",
+      "started_at": 1790694706.3811705,
+      "ended_at": 1790694706.383172
+    },
+    {
+      "key": "inference",
+      "label": "AI height inference",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "1 tiles x 8 TTA views in 5.6s",
+      "started_at": 1790694706.3861687,
+      "ended_at": 1790694711.9438555
+    },
+    {
+      "key": "blending",
+      "label": "Blending and uncertainty",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "Seamless mosaic and per-pixel uncertainty ready",
+      "started_at": 1790694711.9453733,
+      "ended_at": 1790694712.4313493
+    },
+    {
+      "key": "dem",
+      "label": "DEM fetch",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "Terrain from local DEM tiles: N38W077.hgt",
+      "started_at": 1790694712.436345,
+      "ended_at": 1790694714.746569
+    },
+    {
+      "key": "calibration",
+      "label": "Scale calibration",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "absolute_dsm: s=1.000 from model_native",
+      "started_at": 1790694714.7499337,
+      "ended_at": 1790694714.939858
+    },
+    {
+      "key": "shadow",
+      "label": "Shadow cross-check",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "118 shadow heights fused; azimuth 159 deg (estimated); final: absolute_dsm: s=1.160 from shadow",
+      "started_at": 1790694714.941858,
+      "ended_at": 1790694719.48031
+    },
+    {
+      "key": "mesh",
+      "label": "Mesh generation",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "1 chunk(s), 51,414 LOD0 triangles; export mesh 50,738 triangles",
+      "started_at": 1790694721.832368,
+      "ended_at": 1790694723.762511
+    },
+    {
+      "key": "export",
+      "label": "Export",
+      "status": "done",
+      "progress": 100.0,
+      "detail": "COG DSM/nDSM/uncertainty/slope/aspect, GLB, OBJ, hillshade and previews written",
+      "started_at": 1790694724.4512508,
+      "ended_at": 1790694730.1367264
+    }
+  ],
+  "logs": [
+    {
+      "t": 1790694706.2101142,
+      "level": "info",
+      "step": "ingest",
+      "msg": "Reading and validating the input image"
+    },
+    {
+      "t": 1790694706.3301406,
+      "level": "info",
+      "step": "ingest",
+      "msg": "GEOTIFF 1024x1024, 3 band(s), 8-bit; mode=absolute; GSD=0.5 m/px; CRS=EPSG:32618; sun az/el=None/37.42"
+    },
+    {
+      "t": 1790694706.3771698,
+      "level": "info",
+      "step": "ingest",
+      "msg": "ABSOLUTE mode, 1024x1024 px"
+    },
+    {
+      "t": 1790694706.3811705,
+      "level": "info",
+      "step": "tiling",
+      "msg": "Planning overlapping tiles"
+    },
+    {
+      "t": 1790694706.383172,
+      "level": "info",
+      "step": "tiling",
+      "msg": "1 tile(s) of 1024px, 25% overlap, Hann blend"
+    },
+    {
+      "t": 1790694706.3861687,
+      "level": "info",
+      "step": "inference",
+      "msg": "Loading Depth Anything V2"
+    },
+    {
+      "t": 1790694711.7737377,
+      "level": "info",
+      "step": "inference",
+      "msg": "Depth Anything V2 tile 1/1 on cuda (TTA=D4x8)"
+    },
+    {
+      "t": 1790694711.9438555,
+      "level": "warn",
+      "step": "inference",
+      "msg": "Depth Pro not used: Ensemble disabled by the user."
+    },
+    {
+      "t": 1790694711.9438555,
+      "level": "info",
+      "step": "inference",
+      "msg": "1 tiles x 8 TTA views in 5.6s"
+    },
+    {
+      "t": 1790694711.9453733,
+      "level": "info",
+      "step": "blending",
+      "msg": "Blending tiles and computing per-pixel uncertainty"
+    },
+    {
+      "t": 1790694712.4313493,
+      "level": "info",
+      "step": "blending",
+      "msg": "Seamless mosaic and per-pixel uncertainty ready"
+    },
+    {
+      "t": 1790694712.436345,
+      "level": "info",
+      "step": "dem",
+      "msg": "Preparing terrain reference"
+    },
+    {
+      "t": 1790694714.3498323,
+      "level": "info",
+      "step": "dem",
+      "msg": "Land cover: ground=22%, low_vegetation=13%, building=35%, road=27%, tree=4%"
+    },
+    {
+      "t": 1790694714.746569,
+      "level": "info",
+      "step": "dem",
+      "msg": "Terrain from local DEM tiles: N38W077.hgt"
+    },
+    {
+      "t": 1790694714.7499337,
+      "level": "info",
+      "step": "calibration",
+      "msg": "Fitting scale against DEM and control points"
+    },
+    {
+      "t": 1790694714.939858,
+      "level": "info",
+      "step": "calibration",
+      "msg": "absolute_dsm: s=1.000 from model_native"
+    },
+    {
+      "t": 1790694714.941858,
+      "level": "info",
+      "step": "shadow",
+      "msg": "Measuring shadows for an independent height estimate"
+    },
+    {
+      "t": 1790694719.48031,
+      "level": "info",
+      "step": "shadow",
+      "msg": "118 shadow heights fused; azimuth 159 deg (estimated); final: absolute_dsm: s=1.160 from shadow"
+    },
+    {
+      "t": 1790694721.832368,
+      "level": "info",
+      "step": "mesh",
+      "msg": "Building adaptive RTIN mesh with three LOD levels"
+    },
+    {
+      "t": 1790694723.762511,
+      "level": "info",
+      "step": "mesh",
+      "msg": "1 chunk(s), 51,414 LOD0 triangles; export mesh 50,738 triangles"
+    },
+    {
+      "t": 1790694724.4512508,
+      "level": "info",
+      "step": "export",
+      "msg": "Writing COG rasters, previews and scene manifest"
+    },
+    {
+      "t": 1790694730.1367264,
+      "level": "info",
+      "step": "export",
+      "msg": "COG DSM/nDSM/uncertainty/slope/aspect, GLB, OBJ, hillshade and previews written"
+    },
+    {
+      "t": 1790694730.2006254,
+      "level": "info",
+      "step": "export",
+      "msg": "Pipeline complete in 24.0s"
+    }
+  ],
+  "cancel_requested": false,
+  "attempts": 1,
+  "is_sample": true,
+  "sample_id": "DC_42_55",
+  "owner": null,
+  "summary": {
+    "mode": "absolute",
+    "kind": "absolute_dsm",
+    "buildings": 123,
+    "seconds": 24.0,
+    "max_height": 36.17372131347656,
+    "width": 1024,
+    "height": 1024,
+    "rmse": 2.582108497619629,
+    "pearson_r": 0.9218042808321816
+  }
+}

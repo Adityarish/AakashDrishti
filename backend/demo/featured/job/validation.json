@@ -1,0 +1,1 @@
+{"job_id": "8b6310c2cc924adb8ffe9d938ee261e0", "result": {"status": "unavailable", "note": "Upload a reference LiDAR/DSM in the Validation lab to score this scene.", "rmse": null, "mae": null, "correlation": null, "valid_pixel_count": null, "reference_source": null}}

@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+backend/.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+model/*.pth.zip
+model/*.zip
+model/*.pth
+
+*.zip
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+*.tsbuildinfo
+.env.local
+
+# Unity source (unity/) -- editor-generated, never commit
+unity/Library/
+unity/Temp/
+unity/Obj/
+unity/Logs/
+unity/UserSettings/
+unity/MemoryCaptures/
+unity/Builds/
+unity/*.csproj
+unity/*.sln
+unity/*.slnx
+
+# Model weights & large binaries (never commit)
+model/**/*.pt
+model/**/*.pth
+model/**/*.ckpt
+model/**/*.safetensors
+model/**/checkpoints/
+*.tif
+*.tiff
+!model/ml-depth-pro-main/data/*.jpg
+
+# Runtime data directories
+/data/
+/context/
+/test-data/
+
+# Env
+.env
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+
+# Internal / Claude context files
+CLAUDE.md
+IMPLEMENTATION.md
+.claude/
+
+# Featured demo bundle (real baked pipeline output) is committed on purpose
+!backend/demo/featured/job/*.tif
+!backend/demo/featured/job/*.npy
+!backend/demo/featured/job/*.npz
+!backend/demo/denver7/job/*.tif

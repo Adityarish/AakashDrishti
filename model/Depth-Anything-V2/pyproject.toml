@@ -1,0 +1,17 @@
+[project]
+name = "depth_anything_v2"
+version = "2.0"
+description = "Depth Anything V2 model code (vendored from github.com/DepthAnything/Depth-Anything-V2)"
+readme = "README.md"
+dependencies = [
+    "torch",
+    "torchvision",
+    "opencv-python",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["depth_anything_v2*"]

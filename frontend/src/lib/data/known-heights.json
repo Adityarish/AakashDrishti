@@ -1,0 +1,23 @@
+{
+  "_comment": "Ground-truth landmark heights for the 'estimated vs. actual' demo comparison panel. Only for images/dubai-burj-khalifa-skyline.jpg -- the other demo images have no confidently-identified buildings, so no ground truth is claimed for them (see test-data/SOURCES.md). Do not add entries here without a cited public source.",
+  "images": {
+    "dubai-burj-khalifa-skyline.jpg": {
+      "location": "Downtown Dubai, UAE",
+      "buildings": [
+        {
+          "name": "Burj Khalifa",
+          "height_m": 828.0,
+          "source": "https://en.wikipedia.org/wiki/Burj_Khalifa",
+          "note": "Official structural height to tip (widely cited, undisputed)."
+        },
+        {
+          "name": "The Address Downtown",
+          "height_m": 302.0,
+          "height_m_alt": 306.2,
+          "source": "https://www.skyscrapercenter.com/building/the-address/468",
+          "note": "CTBUH/Skyscraper Center lists 302m (991ft); Wikipedia lists 306.2m (1005ft) as architectural height. Sources disagree slightly -- both cited, treat as +/-4m uncertainty rather than a single exact figure."
+        }
+      ]
+    }
+  }
+}

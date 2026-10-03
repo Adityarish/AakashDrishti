@@ -1,0 +1,1 @@
+{"status": "unavailable", "note": "No LiDAR reference was supplied for this scene, so no accuracy score is claimed. Building heights are shadow estimates (see the site analysis page).", "rmse": null, "mae": null, "correlation": null, "valid_pixel_count": null, "reference_source": null}

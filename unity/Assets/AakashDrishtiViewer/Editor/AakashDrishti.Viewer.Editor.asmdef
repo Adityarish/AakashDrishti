@@ -1,0 +1,18 @@
+{
+    "name": "AakashDrishti.Viewer.Editor",
+    "rootNamespace": "AakashDrishti.Viewer.Editor",
+    "references": [
+        "AakashDrishti.Viewer"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

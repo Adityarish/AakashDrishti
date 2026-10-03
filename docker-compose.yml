@@ -1,0 +1,35 @@
+# Full stack:  docker compose up --build
+# Weights are large and gitignored: place them in ./model first (see docs/DEPLOYMENT.md).
+# Override any value via a root .env file or the shell; defaults suit local use.
+# For an NVIDIA GPU, use CUDA torch wheels in backend/Dockerfile and add a `deploy.resources` GPU reservation.
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DEVICE: ${DEVICE:-cpu}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      DEM_AUTO_DOWNLOAD: ${DEM_AUTO_DOWNLOAD:-true}
+      AUTH_REQUIRED: ${AUTH_REQUIRED:-false}
+      AUTH_SECRET: ${AUTH_SECRET:-change-me}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    volumes:
+      - ./data:/app/data
+      - ./model:/app/model
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
