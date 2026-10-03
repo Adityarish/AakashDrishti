@@ -7,11 +7,10 @@ data
 **/node_modules
 frontend/.next
 unity
-docs
-# Weights are mounted at runtime (./model), never baked into images
+# Weights are mounted at runtime (./ml), never baked into images
 **/*.pth
 **/*.pt
 **/*.ckpt
 **/*.safetensors
-model/training
-model/**/checkpoints
+ml/training
+ml/**/checkpoints

@@ -17,7 +17,7 @@ Differences from the DA V2 pipeline, all forced by Depth Pro's design:
     gradient accumulation, and optionally gradient-checkpoint the ViT blocks.
 
 Usage:
-    python model/training/finetune_depth_pro_gamus.py [--gamus-root PATH] [--epochs N]
+    python ml/training/finetune_depth_pro_gamus.py [--gamus-root PATH] [--epochs N]
 """
 
 from __future__ import annotations
@@ -38,7 +38,7 @@ from torch.utils.data import DataLoader, Dataset
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, str(REPO_ROOT / "model" / "ml-depth-pro-main" / "src"))
+sys.path.insert(0, str(REPO_ROOT / "ml" / "ml-depth-pro-main" / "src"))
 
 from gamus_dataset import index_split  # noqa: E402
 from ssi_loss import scale_shift_invariant_l1, aligned_metrics  # noqa: E402
@@ -46,7 +46,7 @@ from depth_pro.depth_pro import DEFAULT_MONODEPTH_CONFIG_DICT, DepthProConfig, c
 
 # --- config ---
 DEFAULT_GAMUS_ROOT = Path(r"D:\Datasets\GAMUS")
-BASE_CHECKPOINT = REPO_ROOT / "model" / "ml-depth-pro-main" / "checkpoints" / "depth_pro.pt"
+BASE_CHECKPOINT = REPO_ROOT / "ml" / "ml-depth-pro-main" / "checkpoints" / "depth_pro.pt"
 INPUT_SIZE = 1536  # fixed by DepthPro.forward (asserts H == W == img_size)
 
 BATCH_SIZE = 1
@@ -59,10 +59,10 @@ GRAD_CLIP_NORM = 1.0
 FREEZE_IMAGE_ENCODER = True
 GRADIENT_CHECKPOINTING = True
 
-RUN_DIR = REPO_ROOT / "model" / "training" / "runs" / "depth_pro_gamus"
+RUN_DIR = REPO_ROOT / "ml" / "training" / "runs" / "depth_pro_gamus"
 LOG_FILE = RUN_DIR / "train_log.jsonl"
-BEST_CHECKPOINT = REPO_ROOT / "model" / "ml-depth-pro-main" / "checkpoints" / "depth_pro_gamus_best.pt"
-LAST_CHECKPOINT = REPO_ROOT / "model" / "ml-depth-pro-main" / "checkpoints" / "depth_pro_gamus_last.pt"
+BEST_CHECKPOINT = REPO_ROOT / "ml" / "ml-depth-pro-main" / "checkpoints" / "depth_pro_gamus_best.pt"
+LAST_CHECKPOINT = REPO_ROOT / "ml" / "ml-depth-pro-main" / "checkpoints" / "depth_pro_gamus_last.pt"
 
 
 class DepthProGamusDataset(Dataset):

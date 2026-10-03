@@ -1,5 +1,5 @@
 # Full stack:  docker compose up --build
-# Weights are large and gitignored: place them in ./model first (see docs/DEPLOYMENT.md).
+# Weights are large and gitignored: place them in ./ml first.
 # Override any value via a root .env file or the shell; defaults suit local use.
 # For an NVIDIA GPU, use CUDA torch wheels in backend/Dockerfile and add a `deploy.resources` GPU reservation.
 services:
@@ -16,7 +16,7 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
     volumes:
       - ./data:/app/data
-      - ./model:/app/model
+      - ./ml:/app/ml
     ports:
       - "8000:8000"
     restart: unless-stopped

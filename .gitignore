@@ -7,9 +7,9 @@ backend/.venv/
 .pytest_cache/
 .ruff_cache/
 
-model/*.pth.zip
-model/*.zip
-model/*.pth
+ml/*.pth.zip
+ml/*.zip
+ml/*.pth
 
 *.zip
 
@@ -33,14 +33,14 @@ unity/*.sln
 unity/*.slnx
 
 # Model weights & large binaries (never commit)
-model/**/*.pt
-model/**/*.pth
-model/**/*.ckpt
-model/**/*.safetensors
-model/**/checkpoints/
+ml/**/*.pt
+ml/**/*.pth
+ml/**/*.ckpt
+ml/**/*.safetensors
+ml/**/checkpoints/
 *.tif
 *.tiff
-!model/ml-depth-pro-main/data/*.jpg
+!ml/ml-depth-pro-main/data/*.jpg
 
 # Runtime data directories
 /data/

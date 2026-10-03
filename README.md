@@ -36,13 +36,14 @@ Height · Slope · Disaster-Zone Overlays · RMSE/MAE Validation
 ```
 backend/    FastAPI service (app/), CLI scripts (scripts/), tests/, demo/ featured scene, Dockerfile
 frontend/   Next.js app (src/), static assets (public/, incl. built Unity WebGL viewer), Dockerfile
+ml/         Vendored Depth Anything V2 / Depth Pro source, training code, YOLO + fine-tuned weights (gitignored)
 unity/      Unity project source for the WebGL viewer
-model/      Vendored Depth Anything V2 / Depth Pro source + training code (weights are gitignored)
-docs/       Deployment and project docs
 data/       Runtime uploads/outputs (gitignored)
 ```
 
-Deploy with `docker compose up --build` — see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Deploy with `docker compose up --build` (UI on :3000, API on :8000). Place weights in `./ml` first —
+they are mounted at runtime, not baked into the image. `NEXT_PUBLIC_API_BASE_URL` is inlined at build time,
+so set it to the public API URL before building the frontend.
 
 ---
 
@@ -90,8 +91,8 @@ Edit `.env` and verify the paths (defaults work out-of-the-box after weight down
 
 ```env
 DEPTH_ANYTHING_V2_ENCODER=vitb
-DEPTH_ANYTHING_V2_CHECKPOINT=./model/depth_anything_v2_vitb.pth
-DEPTH_PRO_CHECKPOINT=./model/ml-depth-pro-main/checkpoints/depth_pro.pt
+DEPTH_ANYTHING_V2_CHECKPOINT=./ml/depth_anything_v2_vitb.pth
+DEPTH_PRO_CHECKPOINT=./ml/ml-depth-pro-main/checkpoints/depth_pro.pt
 DEVICE=cuda          # or cpu
 CORS_ORIGINS=http://localhost:3000
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
@@ -116,7 +117,7 @@ python -c "
 import urllib.request
 urllib.request.urlretrieve(
     'https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.pth',
-    'model/depth_anything_v2_vitb.pth'
+    'ml/depth_anything_v2_vitb.pth'
 )"
 ```
 
@@ -128,17 +129,17 @@ mkdir model\ml-depth-pro-main\checkpoints
 # Python download
 python -c "
 import urllib.request, os
-os.makedirs('model/ml-depth-pro-main/checkpoints', exist_ok=True)
+os.makedirs('ml/ml-depth-pro-main/checkpoints', exist_ok=True)
 urllib.request.urlretrieve(
     'https://ml-site.cdn-apple.com/models/depth-pro/depth_pro.pt',
-    'model/ml-depth-pro-main/checkpoints/depth_pro.pt'
+    'ml/ml-depth-pro-main/checkpoints/depth_pro.pt'
 )"
 ```
 
 **Aerial object detector — YOLOv8s-OBB, DOTA (~23 MB)**
 
 ```bash
-# ultralytics fetches it on first use; move it into model/yolo/
+# ultralytics fetches it on first use; move it into ml/yolo/
 python -c "from ultralytics import YOLO; YOLO('yolov8s-obb.pt')"
 mkdir model\yolo
 move yolov8s-obb.pt model\yolo\
@@ -241,9 +242,11 @@ AakashDrishti/
 │       │   └── viewer/   # Three.js terrain viewer
 │       ├── hooks/        # React hooks (pipeline polling, etc.)
 │       └── lib/          # API client, utilities
-├── model/
+├── ml/
 │   ├── Depth-Anything-V2/       # DA V2 source (vendored)
-│   └── ml-depth-pro-main/       # Depth Pro source (vendored)
+│   ├── ml-depth-pro-main/       # Depth Pro source (vendored)
+│   ├── training/                # Fine-tuning scripts + benchmarks
+│   └── yolo/                    # Object-detection weights
 ├── .env.example
 └── README.md
 ```
@@ -297,10 +300,10 @@ AakashDrishti/
   radial line-of-sight sweep over the DSM and writes a visible-area preview PNG. `app/buildings/scenarios.py::compute_viewshed`.
 - **PDF situation report (basic)** — `POST /api/pipeline/{job_id}/report` renders `report.pdf` (title/stats, DSM preview,
   tallest buildings, disaster-zone summary) purely from the job's own already-persisted artifacts. `app/export/report.py`.
-- **Landscape-stratified benchmark** — `model/training/bench.py` compares the stock vs. GAMUS fine-tuned checkpoint
+- **Landscape-stratified benchmark** — `ml/training/bench.py` compares the stock vs. GAMUS fine-tuned checkpoint
   across urban/sparse/forested/mixed GAMUS test tiles (classified from GAMUS's own land-cover masks). Run it with
-  `backend/.venv/Scripts/python.exe model/training/bench.py --n-per-subset 15`; results land in
-  `model/training/benchmarks/results.md`. No "hilly" subset — GAMUS's AGL height maps normalize away broad terrain
+  `backend/.venv/Scripts/python.exe ml/training/bench.py --n-per-subset 15`; results land in
+  `ml/training/benchmarks/results.md`. No "hilly" subset — GAMUS's AGL height maps normalize away broad terrain
   relief by construction, so it isn't recoverable without a separate bare-earth DEM (see the script's docstring).
   Latest run (59 tiles): mean MAE 3.93 m zero-shot → 2.71 m fine-tuned (production formula), r 0.35 → 0.75.
 

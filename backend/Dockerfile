@@ -13,8 +13,8 @@ RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/c
  && pip install -r backend/requirements.txt
 
 # Vendored model source only (weights are excluded by .dockerignore and mounted at runtime).
-COPY model model
-RUN pip install --no-deps -e model/Depth-Anything-V2 -e model/ml-depth-pro-main
+COPY ml ml
+RUN pip install --no-deps -e ml/Depth-Anything-V2 -e ml/ml-depth-pro-main
 
 COPY backend backend
 RUN useradd --create-home app && mkdir -p data && chown -R app /app/data

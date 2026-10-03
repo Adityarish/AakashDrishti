@@ -23,7 +23,7 @@ a "hilly" subset and says so in the output; add one only when a real DEM
 tile is available (see app/calibration/srtm.py for the DEM-loading
 pattern this project already uses elsewhere).
 
-Usage: model/training/.venv/Scripts/python.exe bench.py [--n-per-subset N]
+Usage: ml/training/.venv/Scripts/python.exe bench.py [--n-per-subset N]
 """
 
 from __future__ import annotations
@@ -42,8 +42,8 @@ from gamus_dataset import IMAGENET_MEAN, IMAGENET_STD, index_split
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GAMUS_ROOT = Path(r"D:\Datasets\GAMUS")
-STOCK_CHECKPOINT = REPO_ROOT / "model" / "depth_anything_v2_vitb.pth"
-FINETUNED_CHECKPOINT = REPO_ROOT / "model" / "depth_anything_v2_vitb_gamus_best.pth"
+STOCK_CHECKPOINT = REPO_ROOT / "ml" / "depth_anything_v2_vitb.pth"
+FINETUNED_CHECKPOINT = REPO_ROOT / "ml" / "depth_anything_v2_vitb_gamus_best.pth"
 OUT_DIR = Path(__file__).resolve().parent / "benchmarks"
 
 # Same convention as backend/app/core/config.py's DA_V2_HEIGHT_SCALE, so the "production"
@@ -71,7 +71,7 @@ def classify_landscape(cls_mask: np.ndarray) -> str:
 def load_model(checkpoint: Path, device: torch.device):
     import sys
 
-    sys.path.insert(0, str(REPO_ROOT / "model" / "Depth-Anything-V2"))
+    sys.path.insert(0, str(REPO_ROOT / "ml" / "Depth-Anything-V2"))
     from depth_anything_v2.dpt import DepthAnythingV2
 
     model = DepthAnythingV2(encoder="vitb", features=128, out_channels=[96, 192, 384, 768])

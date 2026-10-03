@@ -3,7 +3,7 @@
 The deployed detector (backend/app/detect/objects.py) is a DOTA-pretrained
 YOLOv8-OBB model. This script fine-tunes the nano variant on your own labelled
 aerial tiles (or DOTA itself) using the Ultralytics trainer, then copies the
-best weights to model/yolo/ so they can be selected through
+best weights to ml/yolo/ so they can be selected through
 OBJECT_DETECTION_WEIGHTS (backend/app/core/config.py).
 
 Dataset format: Ultralytics YOLO-OBB. One .txt per image, one line per object:
@@ -18,8 +18,8 @@ If you only have original DOTA-format annotations (x1 y1 ... x4 y4 class difficu
 pass --convert-dota-root to convert them first with Ultralytics' own converter.
 
 Usage:
-    python model/training/finetune_yolov8n_obb.py --data path/to/data.yaml
-    python model/training/finetune_yolov8n_obb.py --convert-dota-root D:/Datasets/DOTA --data D:/Datasets/DOTA/data.yaml
+    python ml/training/finetune_yolov8n_obb.py --data path/to/data.yaml
+    python ml/training/finetune_yolov8n_obb.py --convert-dota-root D:/Datasets/DOTA --data D:/Datasets/DOTA/data.yaml
 """
 
 from __future__ import annotations
@@ -35,9 +35,9 @@ from ultralytics import YOLO
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 # --- config ---
-BASE_WEIGHTS = REPO_ROOT / "model" / "yolo" / "yolov8n-obb.pt"  # falls back to auto-download by name if missing
-EXPORT_PATH = REPO_ROOT / "model" / "yolo" / "yolov8n-obb-finetuned.pt"
-RUN_DIR = REPO_ROOT / "model" / "training" / "runs"
+BASE_WEIGHTS = REPO_ROOT / "ml" / "yolo" / "yolov8n-obb.pt"  # falls back to auto-download by name if missing
+EXPORT_PATH = REPO_ROOT / "ml" / "yolo" / "yolov8n-obb-finetuned.pt"
+RUN_DIR = REPO_ROOT / "ml" / "training" / "runs"
 RUN_NAME = "yolov8n_obb_finetune"
 
 EPOCHS = 100
@@ -60,7 +60,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--data", type=Path, required=True, help="Ultralytics data YAML")
     parser.add_argument("--convert-dota-root", type=Path, default=None, help="DOTA root to convert to YOLO-OBB first")
-    parser.add_argument("--weights", type=str, default=None, help="starting weights (default: model/yolo/yolov8n-obb.pt)")
+    parser.add_argument("--weights", type=str, default=None, help="starting weights (default: ml/yolo/yolov8n-obb.pt)")
     parser.add_argument("--epochs", type=int, default=EPOCHS)
     parser.add_argument("--imgsz", type=int, default=IMGSZ)
     parser.add_argument("--batch", type=int, default=BATCH)

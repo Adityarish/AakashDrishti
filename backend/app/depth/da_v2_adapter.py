@@ -70,7 +70,7 @@ def load_model(checkpoint_path: Path, encoder: str, device: torch.device):
     except ImportError as exc:
         raise DepthAnythingV2Unavailable(
             "depth_anything_v2 package not importable. Install it with "
-            "`pip install --no-deps -e model/Depth-Anything-V2`."
+            "`pip install --no-deps -e ml/Depth-Anything-V2`."
         ) from exc
 
     model = DepthAnythingV2(**_MODEL_CONFIGS[encoder])

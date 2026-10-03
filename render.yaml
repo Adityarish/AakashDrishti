@@ -4,7 +4,7 @@
 # The free tier has 512 MB RAM, which cannot hold PyTorch, so this deploys the API
 # WITHOUT the ML stack (torch is never imported at startup). Sample scenes, survey,
 # hazards/flood, scenarios and exports work; live depth inference (uploading a new
-# image for prediction) needs a >= 2 GB plan or the Docker path in docs/DEPLOYMENT.md.
+# image for prediction) needs a >= 2 GB plan or the Docker Compose setup (see README).
 services:
   - type: web
     name: aakashdrishti-backend

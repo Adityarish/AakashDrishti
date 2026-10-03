@@ -39,7 +39,7 @@ from depth_anything_v2.dpt import DepthAnythingV2  # noqa: E402
 
 # --- config ---
 GAMUS_ROOT = Path(r"D:\Datasets\GAMUS")
-BASE_CHECKPOINT = REPO_ROOT / "model" / "depth_anything_v2_vitb.pth"
+BASE_CHECKPOINT = REPO_ROOT / "ml" / "depth_anything_v2_vitb.pth"
 ENCODER = "vitb"
 MODEL_CONFIG = {"encoder": "vitb", "features": 128, "out_channels": [96, 192, 384, 768]}
 
@@ -54,8 +54,8 @@ GRAD_CLIP_NORM = 1.0
 
 RUN_DIR = REPO_ROOT / "training" / "runs" / "da_v2_gamus_full"
 LOG_FILE = RUN_DIR / "train_log.jsonl"
-BEST_CHECKPOINT = REPO_ROOT / "model" / "depth_anything_v2_vitb_gamus_best.pth"
-LAST_CHECKPOINT = REPO_ROOT / "model" / "depth_anything_v2_vitb_gamus_last.pth"
+BEST_CHECKPOINT = REPO_ROOT / "ml" / "depth_anything_v2_vitb_gamus_best.pth"
+LAST_CHECKPOINT = REPO_ROOT / "ml" / "depth_anything_v2_vitb_gamus_last.pth"
 
 
 def log(record: dict) -> None:

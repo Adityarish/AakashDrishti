@@ -10,13 +10,13 @@ pydantic-settings>=2.6
 # torchvision==0.19.0+cu130
 timm>=1.0.11
 
-# Depth Pro deps (matches model/ml-depth-pro-main/pyproject.toml)
+# Depth Pro deps (matches ml/ml-depth-pro-main/pyproject.toml)
 pillow_heif>=0.18
 matplotlib>=3.9
 
 # Image processing
 opencv-python-headless>=4.10
-# NOTE: model/ml-depth-pro-main pins numpy<2 in its own pyproject.toml, but that
+# NOTE: ml/ml-depth-pro-main pins numpy<2 in its own pyproject.toml, but that
 # pin is not enforced here (--no-deps install) because numpy 1.26.x hits a known
 # Windows longdouble overflow bug (numpy#24606). numpy 2.x works fine with our
 # torch/timm/rasterio versions and with depth_pro's actual inference code.

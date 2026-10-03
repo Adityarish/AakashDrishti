@@ -1,4 +1,4 @@
-"""Adapter around the vendored Apple Depth Pro model (model/ml-depth-pro-main).
+"""Adapter around the vendored Apple Depth Pro model (ml/ml-depth-pro-main).
 
 Produces *metric* depth in meters when it can estimate (or is given) a focal
 length; otherwise the metric scale is only as good as its internal FOV
@@ -65,7 +65,7 @@ def run_depth_pro(
     except ImportError as exc:
         raise DepthProUnavailable(
             "depth_pro package not importable. Install it with "
-            "`pip install -e model/ml-depth-pro-main --no-deps` from the repo root."
+            "`pip install -e ml/ml-depth-pro-main --no-deps` from the repo root."
         ) from exc
 
     device = resolve_device(device_preference)

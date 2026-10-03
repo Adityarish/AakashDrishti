@@ -31,13 +31,13 @@ class Settings(BaseSettings):
     # Depth Anything V2
     # Default points at the GAMUS-fine-tuned checkpoint (measured RMSE 3.94m -> 2.40m improvement over the
     # stock pretrained weights on held-out remote-sensing AGL-height data -- see
-    # model/training/runs/da_v2_gamus_full/train_log.jsonl and context/research-notes.md). This .env value
+    # ml/training/runs/da_v2_gamus_full/train_log.jsonl and context/research-notes.md). This .env value
     # is normally set explicitly (see .env.example); this default only applies if unset.
     depth_anything_v2_encoder: str = "vitb"
-    depth_anything_v2_checkpoint: str = "./model/depth_anything_v2_vitb_gamus_best.pth"
+    depth_anything_v2_checkpoint: str = "./ml/depth_anything_v2_vitb_gamus_best.pth"
 
     # Depth Pro
-    depth_pro_checkpoint: str = "./model/ml-depth-pro-main/checkpoints/depth_pro.pt"
+    depth_pro_checkpoint: str = "./ml/ml-depth-pro-main/checkpoints/depth_pro.pt"
     depth_pro_precision: str = "float16"
     # Depth Pro is reference-only (it does not feed the height field); disable to save ~60% runtime.
     enable_depth_pro: bool = False
@@ -53,7 +53,7 @@ class Settings(BaseSettings):
     # Aerial object detection (FR-50). DOTA-trained oriented-box weights: COCO weights hit the same
     # nadir domain gap the depth backbones do (measured: 6 vs 300 detections on the same tile).
     enable_object_detection: bool = True
-    object_detection_weights: str = "./model/yolo/yolov8s-obb.pt"
+    object_detection_weights: str = "./ml/yolo/yolov8s-obb.pt"
     object_detection_conf: float = 0.3
     object_detection_imgsz: int = 1024
 

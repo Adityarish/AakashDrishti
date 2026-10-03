@@ -136,7 +136,7 @@ CONFIG_LABELS = [
     ("finetuned_aligned", "Fine-tuned + per-tile affine", "GAMUS fine-tuned checkpoint, scale and shift fitted per tile (shows shape quality)"),
     ("finetuned_production", "Fine-tuned, production formula", "Exactly what the deployed pipeline computes, no per-tile fitting"),
 ]
-BENCHMARK_FILE = "model/training/benchmarks/results.json"
+BENCHMARK_FILE = "ml/training/benchmarks/results.json"
 GROUPS = ("urban", "sparse", "forested", "mixed")
 
 
@@ -154,13 +154,13 @@ def _aggregate(config: dict) -> dict | None:
 
 @router.get("/benchmarks/table")
 def benchmark_table() -> dict:
-    """Landscape-stratified benchmark measured by model/training/bench.py on real GAMUS test tiles."""
+    """Landscape-stratified benchmark measured by ml/training/bench.py on real GAMUS test tiles."""
     from app.core.config import REPO_ROOT
 
     path = REPO_ROOT / BENCHMARK_FILE
     if not path.is_file():
         return {"measured": False, "rows": [{"key": k, "label": label, "note": note, "measured": False} for k, label, note in CONFIG_LABELS],
-                "note": "Benchmark not run yet (model/training/bench.py)."}
+                "note": "Benchmark not run yet (ml/training/bench.py)."}
     data = _sanitize(json.loads(path.read_text(encoding="utf-8")))
     rows = []
     for key, label, note in CONFIG_LABELS:
